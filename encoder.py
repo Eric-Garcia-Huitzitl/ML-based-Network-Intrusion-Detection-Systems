@@ -1,3 +1,6 @@
+#
+#Author: José Antonio Sánchez Tiro
+#
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing
