@@ -51,7 +51,7 @@ df2 = df.apply(le.fit_transform)
 classifier_obj = Classifier(df2)
 classifier_obj.kNN(3)
 classifier_obj.SVM()
-
+print("Hola mundo");
 
 
 
