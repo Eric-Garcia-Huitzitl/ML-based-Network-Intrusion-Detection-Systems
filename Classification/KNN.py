@@ -5,6 +5,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn import preprocessing
+from sklearn import svm 
+from sklearn import metrics
 
 
 """
@@ -27,13 +29,18 @@ class Classifier:
         print('Accuracy of K-NN classifier on test set: {:.2f}'
               .format(knn.score(self.X_test, self.y_test)))
         #Report Confusion Matrix
-       # pred = knn.predict(self.X_test)
+        #self.pred = knn.predict(self.X_test)
        # print("Confusion matrix")
-       # print(confusion_matrix(y_test, pred))
+        #print(confusion_matrix(self.y_test, self.pred))
         #Report Classification
       # print(classification_report(self.y_test, pred))
-   
-    
+    def SVM(self):
+        self.clf = svm.SVC(kernel='poly', degree=4) #Linear kernel 
+        self.clf.fit(self.X_train,self.y_train)
+        self.ypred = self.clf.predict(self.X_test)
+        print("Accuracy:",metrics.accuracy_score(self.y_test, self.ypred)) 
+        
+        
 
 nfile = 'dos.csv'
 namesX = ['id','duration','src_bytes','dst_bytes','land','wrong_fragment','urgent','hot','num_failed_logins','logged_in','num_compromised','root_shell','su_attempted','num_root','num_file_creations','num_shells','num_access_files','num_outbound_cmds','is_host_login','is_guest_login','count','srv_count','serror_rate','srv_serror_rate','rerror_rate,srv_rerror_rate','same_srv_rate','diff_srv_rate','srv_diff_host_rate','dst_host_count','dst_host_srv_count','dst_host_same_srv_rate','dst_host_diff_srv_rate','dst_host_same_src_port_rate','dst_host_srv_diff_host_rate','dst_host_serror_rate','dst_host_srv_serror_rate','dst_host_rerror_rate','dst_host_srv_rerror_rate','protocol_type','service','flag','xAttack']
@@ -43,6 +50,7 @@ le = preprocessing.LabelEncoder()
 df2 = df.apply(le.fit_transform)
 classifier_obj = Classifier(df2)
 classifier_obj.kNN(3)
+classifier_obj.SVM()
 
 
 
@@ -50,3 +58,8 @@ classifier_obj.kNN(3)
 
 
 
+
+
+
+    
+    
