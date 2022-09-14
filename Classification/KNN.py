@@ -15,6 +15,13 @@ Created on Sun Sep 11 21:28:17 2022
 @author: eric
 """
 
+
+#definiendo Valores
+
+def funcion1():
+	print("0");
+
+
 class Classifier: 
     def __init__(self,dataFrame): #Input dataframe
         self.dF = dataFrame
