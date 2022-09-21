@@ -76,7 +76,7 @@ classifier_obj.arbolDecision();
 #classifier_obj.SVM()
 
 
-
+#Error en algunas etiquetas de la BD con extension arff#
 #p=preprocessing_datos()
 #ruta_nombreBD="/home/antonio/Documents/Proyecto/ML/ML-based-Network-Intrusion-Detection-Systems/NSLKDD-Dataset-master/DOS -d/KDDTest21DOSFS.arff"
 #bd,t=p.leerBD(ruta_nombreBD);
